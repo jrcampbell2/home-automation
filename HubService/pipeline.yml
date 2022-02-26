@@ -8,7 +8,8 @@ trigger:
 
 variables:
   ImageName: 'hub-service'
-  DockerfileLocation: '$(System.DefaultWorkingDirectory)/HubService/HubService/Dockerfile'
+  SolutionDirectory: '$(System.DefaultWorkingDirectory)/HubService'
+  DockerfileLocation: '$(SolutionDirectory)/HubService/Dockerfile'
 
 pool:
   vmImage: ubuntu-latest
@@ -20,3 +21,4 @@ steps:
    repository: $(ImageName)
    command: build
    Dockerfile: $(DockerfileLocation)
+   buildContext: $(SolutionDirectory)
