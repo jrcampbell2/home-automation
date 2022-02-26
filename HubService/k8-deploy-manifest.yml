@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: hub-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hub-service
+  template:
+    metadata:
+      labels:
+        app: hub-service
+    spec:
+      containers:
+        - name: hub-service
+          image: homeautomationregistry.azurecr.io/hub-service:latest
+          ports:
+          - containerPort: 8080
