@@ -1,0 +1,21 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+variables:
+  ImageName: 'hub-service'
+  SolutionDirectory: '$(System.DefaultWorkingDirectory)/HubService'
+  DockerfileLocation: '$(SolutionDirectory)/HubService/Dockerfile'
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+- ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
+  - template: full-build-deploy-template.yml
+  ${{ else }}:
+  - template: gated-build-template.yml

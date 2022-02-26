@@ -16,6 +16,6 @@ spec:
         - name: hub-service
           image: homeautomationregistry.azurecr.io/hub-service:29
           ports:
-          - containerPort: 8080
+          - containerPort: 80
       imagePullSecrets:
         - name: acr-secret
