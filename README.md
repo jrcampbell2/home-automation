@@ -9,10 +9,12 @@ graph LR;
     ui(UI);
     hub(Hub Service)
     node(Node)
+    otlp(OTLP Collector)
 
     hub --> db
     node <--> hub
     ui --> hub
+    hub --> otlp
 ```
 
 ## Runtime Platform
@@ -23,6 +25,7 @@ Applications will be containerized in Docker to support crossplatform developmen
 ## Hub Service
 ## Database
 ## Nodes
+## OpenTelemetry
 
 # Infrastructure Components
 
