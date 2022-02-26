@@ -1,11 +1,11 @@
 parameters: []
 stages:
 
-- stage: Build
-  displayName: Build Stage
+- stage: GatedBuild
+  displayName: Gated Build Stage
   jobs:
 
-  - job: Build
+  - job: GatedBuild
     steps:
 
     - task: Docker@2
