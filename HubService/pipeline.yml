@@ -19,6 +19,9 @@ steps:
   displayName: Build an image
   inputs:
    repository: $(ImageName)
-   command: build
+   command: buildAndPush
+   containerRegistry: HomeAutomationContainerRegistry
    Dockerfile: $(DockerfileLocation)
    buildContext: $(SolutionDirectory)
+   tags: |
+    $(Build.BuildId)
