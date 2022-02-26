@@ -4,7 +4,13 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - HubService
+    - eng
 
 variables:
   ImageName: 'hub-service'
