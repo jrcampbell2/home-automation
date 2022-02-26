@@ -17,5 +17,5 @@ pool:
 stages:
 - ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
   - template: full-build-deploy-template.yml
-  ${{ else }}:
+- ${{ else }}:
   - template: gated-build-template.yml
