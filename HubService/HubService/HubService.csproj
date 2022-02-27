@@ -1,21 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>507f7727-6186-41a0-8fb9-f43c4b450236</UserSecretsId>
-    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>507f7727-6186-41a0-8fb9-f43c4b450236</UserSecretsId>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.2">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Domain\" />
-    <Folder Include="Infrastructure\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Nodes\Infrastructure\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="HubService.Tests" />
+	</ItemGroup>
 
 </Project>
