@@ -18,3 +18,13 @@ stages:
        buildContext: $(SolutionDirectory)
        tags: |
         $(Build.BuildId)
+
+- stage: Dev_QA
+  displayName: DEV/QA
+  jobs:
+
+  - job: Dev_QA_Deployment
+    steps:
+
+    - pwsh: Write-Host "Placeholder Stage for Deployment"
+
