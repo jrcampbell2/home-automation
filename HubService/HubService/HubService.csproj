@@ -19,10 +19,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Nodes\Infrastructure\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<InternalsVisibleTo Include="HubService.Tests" />
 	</ItemGroup>
 

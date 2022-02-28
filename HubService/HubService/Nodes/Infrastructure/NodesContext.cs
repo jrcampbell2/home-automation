@@ -1,7 +1,7 @@
 ﻿using HubService.Nodes.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace HubService.Nodes.Domain.DbContexts
+namespace HubService.Nodes.Infrastructure
 {
     public class NodesContext : DbContext
     {
