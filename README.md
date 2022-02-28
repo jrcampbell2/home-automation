@@ -33,4 +33,23 @@ Applications will be containerized in Docker to support crossplatform developmen
 
 ## Build and Deployment Pipeline
 ## Docker
+The 
+
+### Tagging
+Currently just using unique tags described in [Microsoft best practices](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-image-tag-version). Eventually stable tags will also be used to define latest and specific versions of the images. Semantic versioning will be used and the unique tag will switch from the build ID to the full patch version.
+
+Currently the unique ID is the build ID of the Azure DevOps pipeline build. As seen below the `$(Build.BuildId)` pre-defined pipeline variable is used to easily add the version tag.
+
+```yaml
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+       repository: $(ImageName)
+       command: build
+       Dockerfile: $(DockerfileLocation)
+       buildContext: $(SolutionDirectory)
+       tags: |
+        $(Build.BuildId)
+```
 ## Kubernetes
+Unknown yet whether I will use Kubernetes or Compose. The main "cluster" will likely be running on a raspberry pi and doesn't really need the scaling and ingress features of a k8s cluster.
