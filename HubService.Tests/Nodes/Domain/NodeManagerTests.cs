@@ -2,11 +2,9 @@
 using HubService.Nodes.Domain.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Shouldly;
 
 namespace HubService.Tests.Nodes.Domain
 {
@@ -14,14 +12,38 @@ namespace HubService.Tests.Nodes.Domain
     public class NodeManagerTests
     {
         [TestMethod]
-        public void GetNodes_ShouldReturnListOfNodes()
+        public void GetNodes_NoNodes_ShouldReturnEmptyList()
+        {
+            var nodeRepoMock = setupNodeRepoMock(new List<Node>());
+
+            var nodeManager = new NodeManager(nodeRepoMock);
+            var nodes = nodeManager.GetNodes();
+            nodes.ShouldNotBeNull();
+            nodes.ShouldBeEmpty();
+            nodes.ShouldBeOfType<List<Node>>();
+        }
+
+        [TestMethod]
+        public void GetNodes_TwoNodes_ShouldReturnAllNodes()
+        {
+            var allNodes = new List<Node>
+            {
+                new Node{ Id = 1, Name = "test1" },
+                new Node{ Id = 2, Name = "test2"}
+            };
+            var nodeRepoMock = setupNodeRepoMock(allNodes);
+
+            var nodeManager = new NodeManager(nodeRepoMock);
+            var nodes = nodeManager.GetNodes();
+            nodes.ShouldNotBeNull();
+            nodes.Count().ShouldBe(2);
+        }
+
+        private static INodeRepository setupNodeRepoMock(IEnumerable<Node> getAllNodesResponse)
         {
             var nodeRepoMock = new Mock<INodeRepository>();
-
-            var nodeManager = new NodeManager(nodeRepoMock.Object);
-            var nodes = nodeManager.GetNodes();
-            Assert.IsNotNull(nodes);
-            Assert.IsInstanceOfType(nodes,typeof(List<Node>));
+            nodeRepoMock.Setup(x => x.GetAllNodes()).Returns(getAllNodesResponse);
+            return nodeRepoMock.Object;
         }
     }
 }

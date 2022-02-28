@@ -18,7 +18,7 @@ namespace HubService.Nodes.Infrastructure
             _context.Add(node);
         }
 
-        public List<Node> GetAllNodes()
+        public IEnumerable<Node> GetAllNodes()
         {
             return _context.Nodes.ToList();
         }
