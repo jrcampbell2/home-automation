@@ -72,7 +72,7 @@ namespace HubService.Tests.Nodes.Domain
 
             nodeRepoMock.AllNodes.Count.ShouldBe(0);
             nodeManager.AddNode(node);
-            nodeRepoMock.AllNodes.Count.ShouldBe(2);
+            nodeRepoMock.AllNodes.Count.ShouldBe(1);
         }
 
 
