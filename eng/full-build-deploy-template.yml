@@ -27,4 +27,5 @@ stages:
     steps:
 
     - pwsh: Write-Host "Placeholder Stage for Deployment"
+      displayName: 'PLACEHOLDER STEP'
 
