@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/JRCampbell2/Home-Automation/_apis/build/status/HubService.Pipeline?branchName=main)](https://dev.azure.com/JRCampbell2/Home-Automation/_build/latest?definitionId=4&branchName=main)
+
 > :exclamation: This repository and README are still in very early stages; hence, the incomplete docs.
 
 # Summary
