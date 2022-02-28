@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HubService\HubService\HubService.csproj" />
+    <ProjectReference Include="..\HubService\HubService.csproj" />
   </ItemGroup>
 
 </Project>
