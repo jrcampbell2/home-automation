@@ -12,6 +12,7 @@ RUN dotnet restore "HubService/HubService.csproj"
 COPY . .
 WORKDIR "/src/HubService"
 RUN dotnet build "HubService.csproj" -c Release -o /app/build
+RUN dotnet test
 
 FROM build AS publish
 RUN dotnet publish "HubService.csproj" -c Release -o /app/publish
