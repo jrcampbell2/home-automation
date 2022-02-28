@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "eng", "eng", "{D91D0823-6A8
 		pipeline.yml = pipeline.yml
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HubService.Tests", "HubService.Tests\HubService.Tests.csproj", "{FD1E7445-3DCD-44D8-A48A-D96891614926}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,10 @@ Global
 		{5E03B7C6-484A-46E9-B150-399B1709B8CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E03B7C6-484A-46E9-B150-399B1709B8CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E03B7C6-484A-46E9-B150-399B1709B8CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD1E7445-3DCD-44D8-A48A-D96891614926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1E7445-3DCD-44D8-A48A-D96891614926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1E7445-3DCD-44D8-A48A-D96891614926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1E7445-3DCD-44D8-A48A-D96891614926}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

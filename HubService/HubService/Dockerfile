@@ -8,10 +8,15 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["HubService/HubService.csproj", "HubService/"]
+COPY ["HubService.Tests/HubService.Tests.csproj", "HubService.Tests/"]
+COPY ["HubService.sln", ".."]
 RUN dotnet restore "HubService/HubService.csproj"
+RUN dotnet restore "HubService.Tests/HubService.Tests.csproj"
+
 COPY . .
 WORKDIR "/src/HubService"
 RUN dotnet build "HubService.csproj" -c Release -o /app/build
+RUN dotnet test ..
 
 FROM build AS publish
 RUN dotnet publish "HubService.csproj" -c Release -o /app/publish
